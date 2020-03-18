@@ -41,13 +41,32 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-const navLinks = document.querySelectorAll('a');
-navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
-navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
-navLinks[2].textContent = siteContent["nav"]["nav-item-3"];
-navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
-navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
-navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
+const navLink = document.querySelectorAll('a');
+// navLink[0].textContent = siteContent["nav"]["nav-item-1"];
+// navLink[1].textContent = siteContent["nav"]["nav-item-2"];
+// navLink[2].textContent = siteContent["nav"]["nav-item-3"];
+// navLink[3].textContent = siteContent["nav"]["nav-item-4"];
+// navLink[4].textContent = siteContent["nav"]["nav-item-5"];
+// navLink[5].textContent = siteContent["nav"]["nav-item-6"];
+for (let i = 0; i < navLink.length; i++) {
+  navLink[i].textContent = siteContent["nav"][`nav-item-${i + 1}`]
+}
+navLink.forEach(element => {
+  element.style.color = 'green';
+})
+
+const appendLink = document.createElement('a')
+appendLink.style.color = 'green';
+appendLink.textContent = 'Reviews';
+
+const nav = document.querySelector('nav')
+nav.appendChild(appendLink);
+
+const prependLink = document.createElement('a');
+prependLink.textContent = 'More Info'
+prependLink.style.color = 'green';
+nav.prepend(prependLink);
+
 
 const headline = document.querySelector('h1');
 headline.textContent = siteContent["cta"]["h1"];
@@ -57,6 +76,10 @@ button.textContent = siteContent["cta"]["button"];
 
 const idImg = document.getElementById('cta-img');
 idImg.src = siteContent["cta"]["img-src"];
+idImg.style.boxShadow = '5px 10px #777'
+// idImg.style.border = '1px solid';
+idImg.style.padding = '10px';
+// idImg.style.borderRadius = '25px'
 
 const sectionHeadline = document.getElementsByTagName('h4');
 sectionHeadline[0].textContent = siteContent["main-content"]["features-h4"]
@@ -85,3 +108,6 @@ sectionPara[6].textContent = siteContent["contact"]["phone"];
 sectionPara[7].textContent = siteContent["contact"]["email"];
 
 sectionPara[8].textContent = siteContent["footer"]["copyright"];
+
+
+navLinks.style.color = 'green';
